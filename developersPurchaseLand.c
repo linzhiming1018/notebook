@@ -43,10 +43,17 @@ int main()
     int verticalMinDiff = 0x7fffffff;
     for (int i = 1; i < m; i++)
     {
-        int diff = abs((prefixSumCol[i] - prefixSumCol[0]) - (prefixSumCol[m + 1] - prefixSumCol[i]));
+        int diff = abs((prefixSumCol[i] - prefixSumCol[0]) - (prefixSumCol[m] - prefixSumCol[i]));
         verticalMinDiff = (diff < verticalMinDiff) ? diff : verticalMinDiff;
     }
+    // Find the overall minimum difference
     int minDiff = (horizontalMinDiff < verticalMinDiff) ? horizontalMinDiff : verticalMinDiff;
     printf("%d\n", minDiff);
+    // Free allocated memory
+    for (int i = 0; i < n; i++)
+        free(land[i]);
+    free(land);
+    free(prefixSumRow);
+    free(prefixSumCol);
     return 0;
 }
