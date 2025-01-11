@@ -36,17 +36,17 @@ int main()
     int horizontalMinDiff = 0x7fffffff;
     for (int i = 1; i < n; i++)
     {
-        int diff = abs((prefixSumRow[i] - prefixSumRow[0]) - (prefixSumRow[n + 1] - prefixSumRow[i]));
+        int diff = abs((prefixSumRow[i] - prefixSumRow[0]) - (prefixSumRow[n] - prefixSumRow[i]));
         horizontalMinDiff = (diff < horizontalMinDiff) ? diff : horizontalMinDiff;
     }
     // Split vertically
     int verticalMinDiff = 0x7fffffff;
     for (int i = 1; i < m; i++)
     {
-        int diff = abs((prefixSumCol[i] - prefixSumCol[0]) - (prefixSumCol[m + 1] - prefixSumRow[i]));
+        int diff = abs((prefixSumCol[i] - prefixSumCol[0]) - (prefixSumCol[m + 1] - prefixSumCol[i]));
         verticalMinDiff = (diff < verticalMinDiff) ? diff : verticalMinDiff;
     }
     int minDiff = (horizontalMinDiff < verticalMinDiff) ? horizontalMinDiff : verticalMinDiff;
-    printf("%d", minDiff);
+    printf("%d\n", minDiff);
     return 0;
 }
