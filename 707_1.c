@@ -99,30 +99,40 @@ void testMyLinkedList()
 
     // Test adding at head
     myLinkedListAddAtHead(obj, 1);
+    assert(obj->size == 1);               // Size should be 1
     assert(myLinkedListGet(obj, 0) == 1); // Should return 1
 
     // Test adding at tail
     myLinkedListAddAtTail(obj, 2);
+    assert(obj->size == 2);               // Size should be 2
+    assert(myLinkedListGet(obj, 0) == 1); // Should return 1
     assert(myLinkedListGet(obj, 1) == 2); // Should return 2
 
     // Test adding at index
     myLinkedListAddAtIndex(obj, 1, 3);    // List is now 1 -> 3 -> 2
+    assert(obj->size == 3);               // Size should be 3
+    assert(myLinkedListGet(obj, 0) == 1); // Should return 1
     assert(myLinkedListGet(obj, 1) == 3); // Should return 3
     assert(myLinkedListGet(obj, 2) == 2); // Should return 2
 
     // Test getting out of bounds
-    assert(myLinkedListGet(obj, 3) == -1); // Should return -1
+    assert(myLinkedListGet(obj, -1) == -1); // Should return -1
+    assert(myLinkedListGet(obj, 3) == -1);  // Should return -1
 
     // Test deleting at index
     myLinkedListDeleteAtIndex(obj, 1);    // List is now 1 -> 2
+    assert(obj->size == 2);               // Size should be 2
+    assert(myLinkedListGet(obj, 0) == 1); // Should return 1
     assert(myLinkedListGet(obj, 1) == 2); // Should return 2
 
     // Test deleting head
     myLinkedListDeleteAtIndex(obj, 0);    // List is now 2
+    assert(obj->size == 1);               // Size should be 1
     assert(myLinkedListGet(obj, 0) == 2); // Should return 2
 
     // Test deleting last element
     myLinkedListDeleteAtIndex(obj, 0);     // List is now empty
+    assert(obj->size == 0);                // Size should be 0
     assert(myLinkedListGet(obj, 0) == -1); // Should return -1
 
     // Free the linked list
