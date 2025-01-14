@@ -38,9 +38,8 @@ int *twoSum(int *nums, int numsSize, int target, int *returnSize) {
             ans[0] = iter->_val;
             ans[1] = i;
             return ans;
-        } else {
-            insert(nums[i], i);
         }
+        insert(nums[i], i);
     }
     *returnSize = 0;
     return NULL;
