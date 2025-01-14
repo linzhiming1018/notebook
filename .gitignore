@@ -53,3 +53,7 @@ dkms.conf
 
 # Visual Studio Code
 .vscode/
+
+# CLion
+.idea/
+cmake-build-debug/
