@@ -38,6 +38,8 @@ int **threeSum(int *nums, int numsSize, int *returnSize, int **returnColumnSizes
     int **ans = malloc(sizeof(int *) * capacity);
     *returnSize = 0;
     for (int i = 0; i < numsSize; i++) {
+        if (nums[i] > 0)
+            break;
         if (i > 0 && nums[i] == nums[i - 1])
             continue;
         int j = i + 1, k = numsSize - 1;

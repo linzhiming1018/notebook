@@ -9,6 +9,8 @@ public:
         sort(nums.begin(), nums.end());
         vector<vector<int> > ans;
         for (int i = 0; i < nums.size(); i++) {
+            if (nums[i] > 0)
+                return ans;
             if (i > 0 && nums[i] == nums[i - 1])
                 continue;
             int j = i + 1, k = nums.size() - 1;
