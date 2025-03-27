@@ -1,17 +1,14 @@
 #include "TreeNode.hpp"
 
-class Solution
-{
+class Solution {
 public:
-    vector<int> postorderTraversal(TreeNode *root)
-    {
+    vector<int> postorderTraversal(TreeNode *root) {
         vector<int> ans;
         if (root == nullptr)
             return ans;
         stack<TreeNode *> s;
         s.push(root);
-        while (!s.empty())
-        {
+        while (!s.empty()) {
             root = s.top();
             s.pop();
             ans.push_back(root->val);

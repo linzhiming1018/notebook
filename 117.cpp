@@ -1,20 +1,16 @@
 #include "Node_116.hpp"
 
-class Solution
-{
+class Solution {
 public:
-    Node *connect(Node *root)
-    {
+    Node *connect(Node *root) {
         if (!root)
             return root;
         queue<Node *> q;
         q.push(root);
-        while (!q.empty())
-        {
+        while (!q.empty()) {
             int curSize = q.size();
             Node *preNode = nullptr;
-            for (int i = 0; i < curSize; i++)
-            {
+            for (int i = 0; i < curSize; i++) {
                 Node *curNode = q.front();
                 if (preNode)
                     preNode->next = curNode;
