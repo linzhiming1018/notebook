@@ -23,11 +23,45 @@ public:
         }
     }
 
+    void traversal_new(TreeNode *root, string path, vector<string> &ans) {
+        path += to_string(root->val);
+        if (!root->left && !root->right) {
+            ans.push_back(path);
+            return;
+        }
+        if (root->left) {
+            path += "->";
+            traversal_new(root->left, path, ans);
+            path.pop_back();
+            path.pop_back();
+        }
+        if (root->right) {
+            path += "->";
+            traversal_new(root->right, path, ans);
+            path.pop_back();
+            path.pop_back();
+        }
+    }
+
+    void traversal_latest(TreeNode *root, string path, vector<string> &ans) {
+        path += to_string(root->val);
+        if (!root->left && !root->right) {
+            ans.push_back(path);
+            return;
+        }
+        if (root->left) {
+            traversal_latest(root->left, path + "->", ans);
+        }
+        if (root->right) {
+            traversal_latest(root->right, path + "->", ans);
+        }
+    }
+
     vector<string> binaryTreePaths(TreeNode *root) {
         vector<string> ans;
         if (!root) return ans;
-        vector<int> path;
-        traversal(root, path, ans);
+        string path;
+        traversal_latest(root, path, ans);
         return ans;
     }
 };
