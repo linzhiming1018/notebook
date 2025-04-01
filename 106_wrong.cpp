@@ -19,9 +19,8 @@ private:
             ++rootIndex;
         }
 
-        int leftSize = rootIndex - inBegin;
-        root->left = helper(inorder, postorder, inBegin, rootIndex - 1, postBegin, postBegin + leftSize - 1);
-        root->right = helper(inorder, postorder, rootIndex + 1, inEnd, postBegin + leftSize, postEnd - 1);
+        root->left = helper(inorder, postorder, inBegin, rootIndex - 1, postBegin, rootIndex - 1);
+        root->right = helper(inorder, postorder, rootIndex + 1, inEnd, rootIndex, postEnd - 1);
         return root;
     }
 };
